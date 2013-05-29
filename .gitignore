@@ -1,2 +1,5 @@
 node_modules
 spotify_appkey.key
+npm-debug.log
+spotify_login.json
+dump.*
