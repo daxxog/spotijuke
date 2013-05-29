@@ -1,0 +1,22 @@
+{
+    "name"        : "spotijuke",
+    "description" : "Spotify Jukebox, inspired by play.",
+    "homepage"    : "https://github.com/daxxog/spotijuke",
+    "main"        : "spotijuke.js",
+    "version"     : "0.0.1",
+    "engines": { "node" : ">=0.7.0" },
+    "maintainers": [{
+        "name"  : "David Volm",
+        "email" : "david@volminator.com",
+        "web"   : "http://daxxog.com/"
+    }],
+    "repositories": [{
+        "type" : "git",
+        "url"  : "https://github.com/daxxog/spotijuke.git"
+    }],
+    "dependencies": {
+    },
+    "bin": {
+        "spotijuke" : "./bin/spotijuke"
+    }
+}
