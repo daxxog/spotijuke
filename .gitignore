@@ -1,5 +1,9 @@
-node_modules
-spotify_appkey.key
+.c9revisions/
+node_modules/
 npm-debug.log
+.DS_Store
+._.DS_Store
+spotify_appkey.key
 spotify_login.json
-dump.*
+cache/
+settings/

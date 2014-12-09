@@ -2,7 +2,7 @@
     "name"        : "spotijuke",
     "description" : "Spotify Jukebox, inspired by play.",
     "homepage"    : "https://github.com/daxxog/spotijuke",
-    "main"        : "spotijuke.js",
+    "main"        : "spotijuke.min.js",
     "version"     : "0.0.1",
     "engines": { "node" : ">=0.7.0" },
     "maintainers": [{
@@ -14,7 +14,20 @@
         "type" : "git",
         "url"  : "https://github.com/daxxog/spotijuke.git"
     },
+    "devDependencies": {
+        "bitfactory": "*",
+        "stoptime": "*",
+        "uglify-js": "*"
+    },
     "dependencies": {
+        "libspotify": "*",
+        "whirlpool": "*",
+        "speaker": "*"
+    },
+    "scripts": {
+        "preinstall": "./preinstall.sh",
+        "prepublish": "./prepublish.sh",
+        "postpublish": "./postpublish.sh"
     },
     "bin": {
         "spotijuke" : "./bin/spotijuke"

@@ -1,4 +1,4 @@
-spotijuke
+Spotijuke
 ====================
 
 Spotify Jukebox, inspired by play.
@@ -7,9 +7,9 @@ Install
 -------
 stable
 ```bash
-npm install spotijuke
+npm install -g spotijuke
 ```
 edge
 ```bash
-npm install https://github.com/daxxog/spotijuke/tarball/master
+npm install -g https://github.com/daxxog/spotijuke/tarball/master
 ```
