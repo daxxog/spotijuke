@@ -19,11 +19,6 @@
         "stoptime": "*",
         "uglify-js": "*"
     },
-    "dependencies": {
-        "libspotify": "*",
-        "whirlpool": "*",
-        "speaker": "*"
-    },
     "scripts": {
         "preinstall": "./preinstall.sh",
         "prepublish": "./prepublish.sh",
