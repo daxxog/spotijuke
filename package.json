@@ -19,6 +19,9 @@
         "stoptime": "*",
         "uglify-js": "*"
     },
+    "dependencies": {
+        "spotetrack": "*"
+    },
     "scripts": {
         "preinstall": "./preinstall.sh",
         "prepublish": "./prepublish.sh",

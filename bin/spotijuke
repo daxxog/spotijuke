@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../spotijuke.min.js');
+require('../cli.js');

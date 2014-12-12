@@ -20,7 +20,24 @@
         root.Spotijuke = factory();
   }
 }(this, function() {
-    var Spotijuke;
+    var Spotijuke,
+        Spotetrack = require("spotetrack");
+
+    Spotijuke = function(rlist) {
+        this.rlist = (typeof rlist == 'string') ? rlist : 'spotedis';
+        this.tracks = [];
+
+        this.track('spotify:track:19MMEMJ2nNmq8FCOcmXdID').on('data', function(data) {
+            console.log(data);
+        });
+    };
+
+    Spotijuke.prototype.track = function(uri) {
+        var track = new Spotetrack(this.rlist, uri);
+
+        this.tracks.push(track);
+        return track;
+    };
     
     return Spotijuke;
 }));
