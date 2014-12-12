@@ -5,5 +5,5 @@
  * http://www.apache.org/licenses/LICENSE-2.0.html  
  */
 
-var Spotijuke = require('./spotijuke.min.js');
+var Spotijuke = require('./spotijuke.js');
 new Spotijuke();
