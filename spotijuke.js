@@ -21,7 +21,7 @@
   }
 }(this, function() {
     var Spotijuke,
-        Spotetrack = require("spotetrack"),
+        Spotetrack = require('spotetrack'),
         lame = require('lame'),
         fstream = require('fstream');
 
