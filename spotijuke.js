@@ -21,64 +21,25 @@
   }
 }(this, function() {
     var Spotijuke,
-        Spotetrack = require('spotetrack'),
-        lame = require('lame'),
+        Spotetrack= require('spotetrack'),
         fstream = require('fstream');
 
     Spotijuke = function(rlist) {
         this.rlist = (typeof rlist == 'string') ? rlist : 'spotedis';
-        this.tracks = [];
 
-        var encoder1 = new lame.Encoder({
-            // input
-            channels: 2,        // 2 channels (left and right)
-            bitDepth: 16,       // 16-bit samples
-            sampleRate: 48000,   // 48,000 Hz sample rate
+        Spotetrack(this.rlist, function(track) {
+            track('spotify:track:0Sq3fQFSR7RW37gbpJV50r').on('end', function() {
+                console.log('loaded track1');
+            }).pipe(fstream.Writer('track1.flac'));
 
-            // output
-            bitRate: 320,
-            outSampleRate: 22050,
-            mode: lame.STEREO // STEREO (default), JOINTSTEREO, DUALCHANNEL or MONO
+            track('spotify:track:6ruBjchMNiaGtNJrHDWmt2').on('end', function() {
+                console.log('loaded track2');
+            }).pipe(fstream.Writer('track2.flac'));
+
+            track('spotify:track:5kaUGXmXxUxqMTM7gWMIHN').on('end', function() {
+                console.log('loaded track3');
+            }).pipe(fstream.Writer('track3.flac'));
         });
-
-        var encoder2 = new lame.Encoder({
-            // input
-            channels: 2,        // 2 channels (left and right)
-            bitDepth: 16,       // 16-bit samples
-            sampleRate: 48000,   // 48,000 Hz sample rate
-
-            // output
-            bitRate: 320,
-            outSampleRate: 22050,
-            mode: lame.STEREO // STEREO (default), JOINTSTEREO, DUALCHANNEL or MONO
-        });
-
-        var encoder3 = new lame.Encoder({
-            // input
-            channels: 2,        // 2 channels (left and right)
-            bitDepth: 16,       // 16-bit samples
-            sampleRate: 48000,   // 48,000 Hz sample rate
-
-            // output
-            bitRate: 320,
-            outSampleRate: 22050,
-            mode: lame.STEREO // STEREO (default), JOINTSTEREO, DUALCHANNEL or MONO
-        });
-
-        this.track('spotify:track:0Sq3fQFSR7RW37gbpJV50r').pipe(encoder1).pipe(fstream.Writer('track1.mp3'));
-        this.track('spotify:track:6ruBjchMNiaGtNJrHDWmt2').pipe(encoder2).pipe(fstream.Writer('track2.mp3'));
-        this.track('spotify:track:5kaUGXmXxUxqMTM7gWMIHN').pipe(encoder3).pipe(fstream.Writer('track3.mp3'));
-        //cat track1.pcm | lame --silent -V0 -h -r - \track1.mp3
-        //cat track2.pcm | lame --silent -V0 -h -r - \track2.mp3
-        //cat dump.pcm | lame --silent -V0 -h -r - \dump.mp3
-        //fstream.Reader('track.pcm').pipe(encoder).pipe(fstream.Writer('track.mp3'));
-    };
-
-    Spotijuke.prototype.track = function(uri) {
-        var track = new Spotetrack(this.rlist, uri);
-
-        this.tracks.push(track);
-        return track;
     };
     
     return Spotijuke;
